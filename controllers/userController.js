@@ -1,5 +1,5 @@
 import { PrismaClient } from '@prisma/client';
-import bcrypt from 'bcryptjs';
+import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
 const prisma = new PrismaClient();
@@ -7,6 +7,8 @@ const JWT_SECRET = process.env.JWT_SECRET || 'token-autho-key';
 
 export const userSeConnecter = async (req, res) => {
     const { email, password } = req.body;
+    console.log(`Données reçues : `, {email, password});
+    
     console.log(req);
     
     try {

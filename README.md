@@ -8,3 +8,5 @@ npm init -y
 npm i express bcrypt jsonwebtoken dotenv prisma cors nodemon
 
 npm install @prisma/client
+
+npx prisma generate

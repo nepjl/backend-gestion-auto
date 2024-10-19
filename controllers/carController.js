@@ -1,6 +1,6 @@
-import { Pool } from 'pg';
+import pg from 'pg';
 
-const pool = new Pool({
+const pool = new pg.Pool({
   connectionString: process.env.DATABASE_URL,
 });
 
@@ -8,8 +8,11 @@ const pool = new Pool({
 export const afficherVehicules = async (req, res) => {
   try {
     const result = await pool.query('SELECT * FROM cars');
+    console.log({rows});
+    
     return res.json(result.rows);
-  } catch (error) {
+    
+    } catch (error) {
     console.error(error);
     return res.status(500).json({ message: 'Erreur serveur lors de la récupération des véhicules.' });
   }
@@ -97,3 +100,7 @@ export const supprimerVehicule = async (req, res) => {
     return res.status(500).json({ message: 'Erreur serveur lors de la suppression du véhicule.' });
   }
 };
+
+
+
+
