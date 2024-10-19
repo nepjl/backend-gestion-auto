@@ -12,3 +12,25 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Cars {
+  id        Int     @id @default(autoincrement())
+  img_url     String
+  mark   String?
+  model  String?
+  year    Int?
+  color    String?
+  mileage  Int?
+  
+  
+}
+
+
+// Modèle pour l'User
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  password  String
+ 
+}
+
