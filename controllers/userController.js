@@ -33,7 +33,7 @@ export const getUserProfile = async (req, res) => {
         return res.status(200).json({ utilisateur: user });
     } catch (error) {
         console.error(error);
-        res.status(500).json({ message: 'Erreur du serveur survenue' });
+        res.status(500).json({ message: 'Erreur du serveur survenue !!!!' });
     }
 };
 
